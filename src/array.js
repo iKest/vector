@@ -11,6 +11,8 @@ export class VectorArray extends Array {
     const src = isArray(first) ? first : vals;
 
     super(src.length);
+    // Make correct inheritance
+    Object.setPrototypeOf(this, new.target.prototype);
     for (let i = 0; i < src.length; i += 1) {
       this[i] = src[i];
     }
